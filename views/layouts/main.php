@@ -39,7 +39,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav'],
         'items' => [
-            ['label' => 'hOLA BUENAS TARDES', 'url' => ['/site/index']],
+            ['label' => 'Inicio', 'url' => ['/site/index']],
             ['label' => 'acerca de', 'url' => ['/site/about']],
             ['label' => 'Contactos', 'url' => ['/site/contact']],
             Yii::$app->user->isGuest
