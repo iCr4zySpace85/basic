@@ -2,10 +2,12 @@
 
 body{
     font-family: 'Poppins', sans-serif;
+    background-color: #D6DAE2;
 }
 
 main > .container {
     padding: 70px 15px 20px;
+    
 }
 
 .footer {
