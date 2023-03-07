@@ -31,7 +31,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
         <div class="col p-5">
             
-            <div class="text-center">
+            <div class="text-center"> 
                 <img src="../img/logo.png" width="70" alt="" srcset="">
             </div>
             
