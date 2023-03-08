@@ -11,6 +11,7 @@ use yii\filters\VerbFilter;
 use app\models\Login;
 use app\models\LoginSearch;
 
+use app\controllers\SiteController;
 /**
  * UsuarioController implements the CRUD actions for Usuario model.
  */
@@ -73,32 +74,58 @@ class UsuarioController extends Controller
         $model = new Usuario();
         $login = new Login();
 
-        $valores = Yii::$app->request->post();
+       $v = $this->request->post();
+       $v['Usuario']['login_id']='';
+       
 
-        if( isset($valores['Usuario']) ){
-            // Se integra el nombre de persona para su registro
-            $valores['Persona']['nombre'] = $valores['Estudiante']['Nombre'];
-            }
-          // Incluye primero la alta de la persona
-          if ($persona->load($valores) && $persona->save()) {
-                // Se integra el id de persona para el registro del estudiante
-                $valores['Estudiante']['id_persona'] = $persona->id;
-                if ($model->load($valores) && $model->save()) {
-                    return $this->redirect(['view', 'id' => $model->id]);              
-                }
-            }  
-
-        // if ($this->request->isPost) {
-        //     if ($model->load($this->request->post()) && $model->save()) {
-        //         return $this->redirect(['view', 'id' => $model->id]);
-        //     }
-        // } else {
-        //     $model->loadDefaultValues();
-        // }
+        if ($this->request->isPost) {
+            if ($login->load( $v) && $login->save()) {
+                 $v['Usuario']['login_id']= $login->id;
+                if ($model->load($v) && $model->save()) {
+                  //  Yii::$app->getResponse()->redirect("index.php?r=site/login");
+                $s = new SiteController;
+                $s->actionLogin();
+                    //return $this->redirect(['view', 'id' => $model->id]);
+                   // return $this->redirect(['login');
+                }             
+            }   
+        } else {
+            $login->loadDefaultValues();
+        }
 
         return $this->render('create', [
             'model' => $model,
         ]);
+        /*
+        $valores = $this->request->isPost;
+        var_dump($valores);
+        if( isset($valores['Usuario']) ){
+            // Se integra el nombre de persona para su registro
+            //$valores['Login']['nombre'] = $valores['Estudiante']['Nombre'];
+            }
+          // Incluye primero la alta de la persona
+          if ($login->load($valores) && $login->save()) {
+                // Se integra el id de persona para el registro del estudiante
+                $valores['usuario']['login_id'] = $login->id;
+                if ($model->load($valores) && $model->save()) {
+                 //   return $this->redirect(['view', 'id' => $model->id]);         
+                 return null;     
+                }
+            }  
+
+         if ($this->request->isPost) {
+             if ($model->load($this->request->post()) && $model->save()) {
+                // return $this->redirect(['view', 'id' => $model->id]);
+                return null;
+             }
+         } else {
+             $model->loadDefaultValues();
+         }
+
+        return $this->render('create', [
+            'model' => $model,
+        ]);
+        */
     }
 
     /**

@@ -12,6 +12,8 @@ use yii\widgets\ActiveForm;
 
     <?php $form = ActiveForm::begin(); ?>
 
+    yfugugukuigiuu
+
     <div class="form-group field-login-username required">
 <label class="control-label" for="login-username">Username</label>
 <input type="text" id="login-username" class="form-control" name="Login[username]" maxlength="45" aria-required="true">
