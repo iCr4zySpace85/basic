@@ -2,7 +2,7 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=sensor',
+    'dsn' => 'mysql:host=localhost;dbname=sensoryii',
     'username' => 'root',
     'password' => '',
     'charset' => 'utf8',
