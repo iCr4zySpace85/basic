@@ -10,7 +10,7 @@ use yii\grid\GridView;
 /** @var app\models\MovimientoSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Movimientos';
+$this->title = 'Alertas';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="movimiento-index">
