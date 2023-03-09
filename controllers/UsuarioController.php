@@ -82,11 +82,6 @@ class UsuarioController extends Controller
             if ($login->load( $v) && $login->save()) {
                  $v['Usuario']['login_id']= $login->id;
                 if ($model->load($v) && $model->save()) {
-                  //  Yii::$app->getResponse()->redirect("index.php?r=site/login");
-                $s = new SiteController;
-                $s->actionLogin();
-                    //return $this->redirect(['view', 'id' => $model->id]);
-                   // return $this->redirect(['login');
                 }             
             }   
         } else {

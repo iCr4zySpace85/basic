@@ -37,8 +37,7 @@ $this->params['breadcrumbs'][] = $this->title;
             
             <h1 class="fw-bold text-center"><?= Html::encode($this->title) ?></h1>
             
-            <p class="text-center">¿No tienes una cuenta?</p>
-
+            <p class="text-center">¿No tienes una cuenta? <?= Html::a('Registrate', ['/usuario/create'], ['class' => 'profile-link']) ?></p>
             <?php $form = ActiveForm::begin([
                 'id' => 'login-form',
                 'layout' => 'horizontal',
@@ -50,7 +49,7 @@ $this->params['breadcrumbs'][] = $this->title;
                 ],
             ]); ?>
 
-                <?= $form->field($model, 'username')->textInput(['autofocus' => true, 'placeholder' => "Correo", ]) ?>
+                <?= $form->field($model, 'username')->textInput(['autofocus' => true, 'placeholder' => "Nombre de usuario", ]) ?>
 
                 <?= $form->field($model, 'password')->passwordInput(['placeholder' => "Contraseña"])?>
 
@@ -60,7 +59,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <div class="form-group ">
                     <div class="text-center">
-                        <?= Html::submitButton('Entrar', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
+                        <?= Html::submitButton('Iniciar', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>
                     </div>
                 </div>
 
