@@ -40,13 +40,48 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
         'options' => ['class' => 'navbar-nav'],
         'items' => [
 
-            ['label' => 'Inicio', 'url' => ['/site/index']],
-            ['label' => 'Contactos', 'url' => ['/site/contact']],
-            ['label' => 'Alertas', 'url' => ['/movimiento/index']],
-            ['label' => 'Login', 'url' => ['/login/index']],
-            ['label' => 'Usuarios', 'url' => ['/usuario/index']],
-            ['label' => 'Registrate', 'url' => ['/usuario/create']],
-            
+            Yii::$app->user->isGuest 
+                ? ['label' => 'Inicio', 'url' => ['/site/index']]
+           
+                :(
+                    Yii::$app->user->identity->perfil_id == 1
+                        ?['label' => 'Inicio', 'url' => ['/site/index']]
+                        :['label' => 'Inicio', 'url' => ['/site/index']]
+                ),
+
+            Yii::$app->user->isGuest 
+                ? ['label' => 'Contactos', 'url' => ['/site/contact']]
+           
+                :(
+                    Yii::$app->user->identity->perfil_id == 1
+                        ?['label' => 'Alertas', 'url' => ['/movimiento/index']]
+                        :['label' => 'Accion', 'url' => ['/sensor/index']]
+                ),
+            Yii::$app->user->isGuest 
+                ? ['label' => 'Registrate', 'url' => ['/usuario/create']]
+           
+                :(
+                    Yii::$app->user->identity->perfil_id == 1
+                        ?['label' => 'Usuarios', 'url' => ['/usuario/index']]
+                        :['label' => 'Contactos', 'url' => ['/site/contact']]
+                ),
+            Yii::$app->user->isGuest 
+                ? ['label' => '', 'url' => ['/site/index']]
+           
+                :(
+                    Yii::$app->user->identity->perfil_id == 1
+                        ?['label' => 'Contactos', 'url' => ['/site/contact']]
+                        :['label' => '', 'url' => ['/site/index']]
+                ),
+
+           
+                /*['label' => 'Inicio', 'url' => ['/site/index']],
+                ['label' => 'Contactos', 'url' => ['/site/contact']],
+                ['label' => 'Alertas', 'url' => ['/movimiento/index']],
+                ['label' => 'Login', 'url' => ['/login/index']],
+                ['label' => 'Usuarios', 'url' => ['/usuario/index']],
+                ['label' => 'Registrate', 'url' => ['/usuario/create']],*/
+
             Yii::$app->user->isGuest
                 ? ['label' => 'Iniciar Sesión', 'url' => ['/site/login']]
                 : '<li class="nav-item">'
