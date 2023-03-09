@@ -65,7 +65,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
             <?php ActiveForm::end(); ?>
 
-            <p class="text-center my-3">¿Olvidaste tu contraseña?</p>
+            <p class="text-center my-3"><?= Html::a('¿Olvidaste tu contraseña?', ['/usuario/create'], ['class' => 'profile-link']) ?></p>
         </div>
 
 
