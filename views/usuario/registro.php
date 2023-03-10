@@ -67,8 +67,13 @@ use yii\widgets\ActiveForm;
                     }
                     
                 ?>
+                
 
-                <?= $form->field($model, 'fechaRegis')->hiddenInput(['value' => obtenerFecha()]) ?>
+                <?php //=$form->field($model, 'fechaRegis')->hiddenInput(['value' => obtenerFecha()]) ?>
+
+                <input type="hidden" id="usuario-fecharegis" class="form-control" name="Usuario[fechaRegis]" value="<?php
+                echo obtenerFecha();
+                ?>">
 
                 <div class="form-group field-usuario-habilitado required">
                 <!-- <label class="control-label" for="usuario-habilitado">Habilitado</label> -->
