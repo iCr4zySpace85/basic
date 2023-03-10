@@ -14,7 +14,7 @@ if (!Yii::$app->user->isGuest) {
     $this->params['breadcrumbs'][] = ['label' => 'Usuarios', 'url' => ['index']];
     $this->params['breadcrumbs'][] = $this->title;
 }else{
-    $this->title = 'Registrate';
+    // $this->title = 'Registrate';
 }
    
 ?>
@@ -24,8 +24,13 @@ if (!Yii::$app->user->isGuest) {
      
     
 
-    <?= $this->render('registro', [
-        'model' => $model,
-    ]) ?>
+    <?= 
+        Yii::$app->user->isGuest 
+        ? $this->render('registro', ['model' => $model,])   
+
+        : $this->render('_form', ['model' => $model,]) 
+    ?> 
+    
+   
 
 </div>

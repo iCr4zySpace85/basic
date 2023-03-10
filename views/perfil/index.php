@@ -1,24 +1,24 @@
 <?php
 
-use app\models\Usuario;
+use app\models\Perfil;
 use yii\helpers\Html;
 use yii\helpers\Url;
 use yii\grid\ActionColumn;
 use yii\grid\GridView;
 
 /** @var yii\web\View $this */
-/** @var app\models\UsuarioSearch $searchModel */
+/** @var app\models\PerfilSearch $searchModel */
 /** @var yii\data\ActiveDataProvider $dataProvider */
 
-$this->title = 'Usuarios';
+$this->title = 'Perfiles';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
-<div class="usuario-index">
+<div class="perfil-index">
 
     <h1><?= Html::encode($this->title) ?></h1>
 
     <p>
-        <?= Html::a('Agregar usuario', ['create'], ['class' => 'btn btn-success']) ?>
+        <?= Html::a('Crear perfil', ['create'], ['class' => 'btn btn-success']) ?>
     </p>
 
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
@@ -29,15 +29,11 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'id',
+            //'id',
             'nombre',
-            'apellidos',
-            'fechaRegis',
-            'habilitado',
-            //'login_id',
             [
                 'class' => ActionColumn::className(),
-                'urlCreator' => function ($action, Usuario $model, $key, $index, $column) {
+                'urlCreator' => function ($action, Perfil $model, $key, $index, $column) {
                     return Url::toRoute([$action, 'id' => $model->id]);
                  }
             ],

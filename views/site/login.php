@@ -53,10 +53,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
                 <?= $form->field($model, 'password')->passwordInput(['placeholder' => "Contraseña"])?>
 
-                <?php /*= $form->field($model, 'rememberMe')->checkbox([
-                    'template' => "<div class=\"offset-lg-1 col-lg-5 custom-control custom-checkbox\">{input} {label}</div>\n<div class=\"col-lg-8\">{error}</div>",
-                ]) */?>
-
                 <div class="form-group ">
                     <div class="text-center">
                         <?= Html::submitButton('Iniciar', ['class' => 'btn btn-primary', 'name' => 'login-button']) ?>

@@ -55,7 +55,7 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                 :(
                     Yii::$app->user->identity->perfil_id == 1
                         ?['label' => 'Alertas', 'url' => ['/movimiento/index']]
-                        :['label' => 'Accion', 'url' => ['/sensor/index']]
+                        :['label' => 'Acciones', 'url' => ['/sensor/index']]
                 ),
             Yii::$app->user->isGuest 
                 ? ['label' => 'Registrate', 'url' => ['/usuario/create']]
@@ -64,6 +64,14 @@ $this->registerLinkTag(['rel' => 'icon', 'type' => 'image/x-icon', 'href' => Yii
                     Yii::$app->user->identity->perfil_id == 1
                         ?['label' => 'Usuarios', 'url' => ['/usuario/index']]
                         :['label' => 'Contactos', 'url' => ['/site/contact']]
+                ),
+            Yii::$app->user->isGuest 
+                ? ['label' => '', 'url' => ['/usuario/create']]
+           
+                :(
+                    Yii::$app->user->identity->perfil_id == 1
+                        ?['label' => 'Perfiles', 'url' => ['/perfil/index']]
+                        :['label' => '', 'url' => ['/site/contact']]
                 ),
             Yii::$app->user->isGuest 
                 ? ['label' => '', 'url' => ['/site/index']]
